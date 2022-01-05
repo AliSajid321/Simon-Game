@@ -57,7 +57,14 @@ function checkAnswer(currentLevel){
         
     }
     else{
-        console.log("fail");
+        console.log("wrong");
+        playSound("wrong");
+        var wrongPress = $("body").addClass("game-over");
+        setTimeout(function(){
+            wrongPress.removeClass("game-over");
+        }, 200);
+        $("h1").text("Game Over, Press any key to Restart");
+        startOver();
     }
 
 }
@@ -76,6 +83,11 @@ function nextSequence(){
     // var colorSound = new Audio("sounds/"+ randomChosenColor + ".mp3");
     // colorSound.play();
     //return randomChosenColor;
+}
 
-
+function startOver(){
+    level = 0;
+    gamePattern=[];
+    count=0;
+    userClickedPattern=[];
 }
